@@ -7,24 +7,12 @@ var ProductModel = require('../models/ProductModel.js');
  */
 module.exports = {
 
-    /**
-     * ProductController.list()
-     */
     list: function (req, res) {
-        ProductModel.find(function (err, Products) {
-            if (err) {
-                return res.status(500).json({
-                    message: 'Error when getting Product.',
-                    error: err
-                });
-            }
-            return res.json(Products);
-        });
+        ProductModel.find()
+        .then(products => res.status(200).json(products))
+        .catch(e => res.status(500).json({error:e.message}));
     },
 
-    /**
-     * ProductController.show()
-     */
     show: function (req, res) {
         var id = req.params.id;
         ProductModel.findOne({_id: id}, function (err, Product) {
@@ -86,7 +74,7 @@ module.exports = {
             Product.restaurantId = req.body.restaurantId ? req.body.restaurantId : Product.restaurantId;
 			Product.name = req.body.name ? req.body.name : Product.name;
 			Product.price = req.body.price ? req.body.price : Product.price;
-			
+
             Product.save(function (err, Product) {
                 if (err) {
                     return res.status(500).json({
