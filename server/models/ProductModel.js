@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-var ProductSchema = new Schema({
+var productSchema = new Schema({
 	'restaurantId' : {
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'Restaurant'
@@ -10,4 +10,4 @@ var ProductSchema = new Schema({
 	'price' : Number
 });
 
-module.exports = mongoose.model('Product', ProductSchema);
+module.exports = mongoose.model('product', productSchema);

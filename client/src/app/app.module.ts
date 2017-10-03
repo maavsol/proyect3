@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import {routes} from './routes';
 import { SignupformComponent } from './signupform/signupform.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SignupformComponent } from './signupform/signupform.component';
     LoginformComponent,
     HomeComponent,
     UserprofileComponent,
-    SignupformComponent
+    SignupformComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

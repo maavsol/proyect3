@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-var RestaurantSchema = new Schema({
+var restaurantSchema = new Schema({
 	'name' : String
 });
 
-module.exports = mongoose.model('Restaurant', RestaurantSchema);
+module.exports = mongoose.model('restaurant', restaurantSchema);

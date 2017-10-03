@@ -1,114 +1,114 @@
-var OrderModel = require('../models/OrderModel.js');
+var orderModel = require('../models/orderModel.js');
 
 /**
- * OrderController.js
+ * orderController.js
  *
- * @description :: Server-side logic for managing Orders.
+ * @description :: Server-side logic for managing orders.
  */
 module.exports = {
 
     /**
-     * OrderController.list()
+     * orderController.list()
      */
     list: function (req, res) {
-        OrderModel.find(function (err, Orders) {
+        orderModel.find(function (err, orders) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Order.',
+                    message: 'Error when getting order.',
                     error: err
                 });
             }
-            return res.json(Orders);
+            return res.json(orders);
         });
     },
 
     /**
-     * OrderController.show()
+     * orderController.show()
      */
     show: function (req, res) {
         var id = req.params.id;
-        OrderModel.findOne({_id: id}, function (err, Order) {
+        orderModel.findOne({_id: id}, function (err, order) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Order.',
+                    message: 'Error when getting order.',
                     error: err
                 });
             }
-            if (!Order) {
+            if (!order) {
                 return res.status(404).json({
-                    message: 'No such Order'
+                    message: 'No such order'
                 });
             }
-            return res.json(Order);
+            return res.json(order);
         });
     },
 
     /**
-     * OrderController.create()
+     * orderController.create()
      */
     create: function (req, res) {
-        var Order = new OrderModel({
+        var order = new orderModel({
 			date : req.body.date,
 			productId : req.body.productId,
 			userId : req.body.userId
 
         });
 
-        Order.save(function (err, Order) {
+        order.save(function (err, order) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when creating Order',
+                    message: 'Error when creating order',
                     error: err
                 });
             }
-            return res.status(201).json(Order);
+            return res.status(201).json(order);
         });
     },
 
     /**
-     * OrderController.update()
+     * orderController.update()
      */
     update: function (req, res) {
         var id = req.params.id;
-        OrderModel.findOne({_id: id}, function (err, Order) {
+        orderModel.findOne({_id: id}, function (err, order) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Order',
+                    message: 'Error when getting order',
                     error: err
                 });
             }
-            if (!Order) {
+            if (!order) {
                 return res.status(404).json({
-                    message: 'No such Order'
+                    message: 'No such order'
                 });
             }
 
-            Order.date = req.body.date ? req.body.date : Order.date;
-			Order.productId = req.body.productId ? req.body.productId : Order.productId;
-			Order.userId = req.body.userId ? req.body.userId : Order.userId;
+            order.date = req.body.date ? req.body.date : order.date;
+			order.productId = req.body.productId ? req.body.productId : order.productId;
+			order.userId = req.body.userId ? req.body.userId : order.userId;
 			
-            Order.save(function (err, Order) {
+            order.save(function (err, order) {
                 if (err) {
                     return res.status(500).json({
-                        message: 'Error when updating Order.',
+                        message: 'Error when updating order.',
                         error: err
                     });
                 }
 
-                return res.json(Order);
+                return res.json(order);
             });
         });
     },
 
     /**
-     * OrderController.remove()
+     * orderController.remove()
      */
     remove: function (req, res) {
         var id = req.params.id;
-        OrderModel.findByIdAndRemove(id, function (err, Order) {
+        orderModel.findByIdAndRemove(id, function (err, order) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when deleting the Order.',
+                    message: 'Error when deleting the order.',
                     error: err
                 });
             }

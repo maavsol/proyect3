@@ -1,11 +1,30 @@
 var express = require('express');
 var router = express.Router();
-var RestaurantController = require('../controllers/RestaurantController.js');
+var restaurantController = require('../controllers/restaurantController.js');
 
-router.get('/', RestaurantController.list);
-router.get('/:id', RestaurantController.show);
-router.post('/', RestaurantController.create);
-router.put('/:id', RestaurantController.update);
-router.delete('/:id', RestaurantController.remove);
+/*
+ * GET
+ */
+router.get('/', restaurantController.list);
+
+/*
+ * GET
+ */
+router.get('/:id', restaurantController.show);
+
+/*
+ * POST
+ */
+router.post('/', restaurantController.create);
+
+/*
+ * PUT
+ */
+router.put('/:id', restaurantController.update);
+
+/*
+ * DELETE
+ */
+router.delete('/:id', restaurantController.remove);
 
 module.exports = router;

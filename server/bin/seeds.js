@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const Product = require('../models/ProductModel');
-const {DB_URL} = require('../config/db');
+const Product = require('../models/productModel');
+const {dbURL} = require('../config/database');
 
-mongoose.connect(DB_URL, {useMongoClient: true});
+mongoose.connect(dbURL, {useMongoClient: true});
 
 const products = [
   {

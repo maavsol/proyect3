@@ -1,110 +1,110 @@
-var RestaurantModel = require('../models/RestaurantModel.js');
+var restaurantModel = require('../models/restaurantModel.js');
 
 /**
- * RestaurantController.js
+ * restaurantController.js
  *
- * @description :: Server-side logic for managing Restaurants.
+ * @description :: Server-side logic for managing restaurants.
  */
 module.exports = {
 
     /**
-     * RestaurantController.list()
+     * restaurantController.list()
      */
     list: function (req, res) {
-        RestaurantModel.find(function (err, Restaurants) {
+        restaurantModel.find(function (err, restaurants) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Restaurant.',
+                    message: 'Error when getting restaurant.',
                     error: err
                 });
             }
-            return res.json(Restaurants);
+            return res.json(restaurants);
         });
     },
 
     /**
-     * RestaurantController.show()
+     * restaurantController.show()
      */
     show: function (req, res) {
         var id = req.params.id;
-        RestaurantModel.findOne({_id: id}, function (err, Restaurant) {
+        restaurantModel.findOne({_id: id}, function (err, restaurant) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Restaurant.',
+                    message: 'Error when getting restaurant.',
                     error: err
                 });
             }
-            if (!Restaurant) {
+            if (!restaurant) {
                 return res.status(404).json({
-                    message: 'No such Restaurant'
+                    message: 'No such restaurant'
                 });
             }
-            return res.json(Restaurant);
+            return res.json(restaurant);
         });
     },
 
     /**
-     * RestaurantController.create()
+     * restaurantController.create()
      */
     create: function (req, res) {
-        var Restaurant = new RestaurantModel({
+        var restaurant = new restaurantModel({
 			name : req.body.name
 
         });
 
-        Restaurant.save(function (err, Restaurant) {
+        restaurant.save(function (err, restaurant) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when creating Restaurant',
+                    message: 'Error when creating restaurant',
                     error: err
                 });
             }
-            return res.status(201).json(Restaurant);
+            return res.status(201).json(restaurant);
         });
     },
 
     /**
-     * RestaurantController.update()
+     * restaurantController.update()
      */
     update: function (req, res) {
         var id = req.params.id;
-        RestaurantModel.findOne({_id: id}, function (err, Restaurant) {
+        restaurantModel.findOne({_id: id}, function (err, restaurant) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when getting Restaurant',
+                    message: 'Error when getting restaurant',
                     error: err
                 });
             }
-            if (!Restaurant) {
+            if (!restaurant) {
                 return res.status(404).json({
-                    message: 'No such Restaurant'
+                    message: 'No such restaurant'
                 });
             }
 
-            Restaurant.name = req.body.name ? req.body.name : Restaurant.name;
+            restaurant.name = req.body.name ? req.body.name : restaurant.name;
 			
-            Restaurant.save(function (err, Restaurant) {
+            restaurant.save(function (err, restaurant) {
                 if (err) {
                     return res.status(500).json({
-                        message: 'Error when updating Restaurant.',
+                        message: 'Error when updating restaurant.',
                         error: err
                     });
                 }
 
-                return res.json(Restaurant);
+                return res.json(restaurant);
             });
         });
     },
 
     /**
-     * RestaurantController.remove()
+     * restaurantController.remove()
      */
     remove: function (req, res) {
         var id = req.params.id;
-        RestaurantModel.findByIdAndRemove(id, function (err, Restaurant) {
+        restaurantModel.findByIdAndRemove(id, function (err, restaurant) {
             if (err) {
                 return res.status(500).json({
-                    message: 'Error when deleting the Restaurant.',
+                    message: 'Error when deleting the restaurant.',
                     error: err
                 });
             }

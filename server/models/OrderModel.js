@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
-var OrderSchema = new Schema({
+var orderSchema = new Schema({
 	'date' : Date,
 	'productId' : {
 	 	type: Schema.Types.ObjectId,
@@ -13,4 +13,4 @@ var OrderSchema = new Schema({
 	}
 });
 
-module.exports = mongoose.model('Order', OrderSchema);
+module.exports = mongoose.model('order', orderSchema);

@@ -1,11 +1,30 @@
 var express = require('express');
 var router = express.Router();
-var OrderController = require('../controllers/OrderController.js');
+var orderController = require('../controllers/orderController.js');
 
-router.get('/', OrderController.list);
-router.get('/:id', OrderController.show);
-router.post('/', OrderController.create);
-router.put('/:id', OrderController.update);
-router.delete('/:id', OrderController.remove);
+/*
+ * GET
+ */
+router.get('/', orderController.list);
+
+/*
+ * GET
+ */
+router.get('/:id', orderController.show);
+
+/*
+ * POST
+ */
+router.post('/', orderController.create);
+
+/*
+ * PUT
+ */
+router.put('/:id', orderController.update);
+
+/*
+ * DELETE
+ */
+router.delete('/:id', orderController.remove);
 
 module.exports = router;
