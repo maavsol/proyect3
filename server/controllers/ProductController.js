@@ -38,7 +38,6 @@ module.exports = {
   },
 
   update: function(req, res) {
-
     const {restaurantId, name, price} = req.body;
     const updates = {restaurantId, name, price};
 
