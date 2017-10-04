@@ -1,122 +1,56 @@
 var productModel = require('../models/productModel.js');
 
-/**
- * productController.js
- *
- * @description :: Server-side logic for managing products.
- */
 module.exports = {
 
-  /**
-   * productController.list()
-   */
   list: function(req, res) {
-    productModel.find(function(err, products) {
-      if (err) {
-        return res.status(500).json({
-          message: 'Error when getting product.',
-          error: err
-        });
-      }
-      return res.json(products);
-    });
+    productModel.find()
+      .then(products => res.status(200).json(products))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }));
   },
 
-  /**
-   * productController.show()
-   */
   show: function(req, res) {
-    var id = req.params.id;
-    productModel.findOne({
-      _id: id
-    }, function(err, product) {
-      if (err) {
-        return res.status(500).json({
-          message: 'Error when getting product.',
-          error: err
-        });
-      }
-      if (!product) {
-        return res.status(404).json({
-          message: 'No such product'
-        });
-      }
-      return res.json(product);
-    });
+    const id = req.params.id;
+    productModel.findById(id)
+      .then(p => res.status(200).json(p))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }))
   },
 
-  /**
-   * productController.create()
-   */
   create: function(req, res) {
-    var product = new productModel({
+    const product = new productModel({
       restaurantId: req.body.restaurantId,
       name: req.body.name,
       price: req.body.price
 
     });
 
-    product.save(function(err, product) {
-      if (err) {
-        return res.status(500).json({
-          message: 'Error when creating product',
-          error: err
-        });
-      }
-      return res.status(201).json(product);
-    });
+    product.save()
+      .then(product => res.status(201).json({
+        message: 'new product added',
+        product: product
+      }))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }));
   },
 
-  /**
-   * productController.update()
-   */
   update: function(req, res) {
-    var id = req.params.id;
-    productModel.findOne({
-      _id: id
-    }, function(err, product) {
-      if (err) {
-        return res.status(500).json({
-          message: 'Error when getting product',
-          error: err
-        });
-      }
-      if (!product) {
-        return res.status(404).json({
-          message: 'No such product'
-        });
-      }
 
-      product.restaurantId = req.body.restaurantId ? req.body.restaurantId : product.restaurantId;
-      product.name = req.body.name ? req.body.name : product.name;
-      product.price = req.body.price ? req.body.price : product.price;
+    const {restaurantId, name, price} = req.body;
+    const updates = {restaurantId, name, price};
 
-      product.save(function(err, product) {
-        if (err) {
-          return res.status(500).json({
-            message: 'Error when updating product.',
-            error: err
-          });
-        }
-
-        return res.json(product);
-      });
-    });
+    productModel.findByIdAndUpdate(req.params.id, updates, {new:true})
+    .then(product => res.status(200).json(product))
+    .catch(e => res.status(500).json({error:e.message}));
   },
 
-  /**
-   * productController.remove()
-   */
   remove: function(req, res) {
-    var id = req.params.id;
-    productModel.findByIdAndRemove(id, function(err, product) {
-      if (err) {
-        return res.status(500).json({
-          message: 'Error when deleting the product.',
-          error: err
-        });
-      }
-      return res.status(204).json();
-    });
+    const productId = req.params.id;
+    productModel.findByIdAndRemove(productId)
+    .then(res.status(204).json({message: 'product deleted'}))
+    .catch(e => res.status(500).json({error:e.message}))
   }
-};
+}
