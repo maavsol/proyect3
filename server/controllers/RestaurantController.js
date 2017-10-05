@@ -1,4 +1,5 @@
 var restaurantModel = require('../models/restaurantModel.js');
+var Product = require('../models/productModel.js');
 
 module.exports = {
 
@@ -12,41 +13,41 @@ module.exports = {
 
   show: function(req, res) {
     const id = req.params.id;
-    restaurantModel.findById(id)
-      .then(p => res.status(200).json(p))
+    restaurantModel.findById(id).populate('products')
+      .then(restaurant => res.status(200).json(restaurant))
       .catch(e => res.status(500).json({
         error: e.message
       }))
-  },
-
-  create: function(req, res) {
-    const restaurant = new restaurantModel({
-      name: req.body.name
-    });
-
-    restaurant.save()
-      .then(restaurant => res.status(201).json({
-        message: 'new restaurant added',
-        restaurant: restaurant
-      }))
-      .catch(e => res.status(500).json({
-        error: e.message
-      }));
-  },
-
-  update: function(req, res) {
-    const {name} = req.body;
-    const updates = {name};
-
-    restaurantModel.findByIdAndUpdate(req.params.id, updates, {new:true})
-    .then(restaurant => res.status(200).json(restaurant))
-    .catch(e => res.status(500).json({error:e.message}));
-  },
-
-  remove: function(req, res) {
-    const orderId = req.params.id;
-    restaurantModel.findByIdAndRemove(orderId)
-    .then(res.status(204).json({message: 'restaurant deleted'}))
-    .catch(e => res.status(500).json({error:e.message}))
   }
+
+  // create: function(req, res) {
+  //   const restaurant = new restaurantModel({
+  //     name: req.body.name
+  //   });
+  //
+  //   restaurant.save()
+  //     .then(restaurant => res.status(201).json({
+  //       message: 'new restaurant added',
+  //       restaurant: restaurant
+  //     }))
+  //     .catch(e => res.status(500).json({
+  //       error: e.message
+  //     }));
+  // },
+  //
+  // update: function(req, res) {
+  //   const {name} = req.body;
+  //   const updates = {name};
+  //
+  //   restaurantModel.findByIdAndUpdate(req.params.id, updates, {new:true})
+  //   .then(restaurant => res.status(200).json(restaurant))
+  //   .catch(e => res.status(500).json({error:e.message}));
+  // },
+  //
+  // remove: function(req, res) {
+  //   const orderId = req.params.id;
+  //   restaurantModel.findByIdAndRemove(orderId)
+  //   .then(res.status(204).json({message: 'restaurant deleted'}))
+  //   .catch(e => res.status(500).json({error:e.message}))
+  // }
 };

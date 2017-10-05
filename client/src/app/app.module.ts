@@ -10,15 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SignupformComponent } from './signupform/signupform.component';
 import { NavComponent } from './shared/nav/nav.component';
-import { RestaurantsComponent } from './restaurants/restaurants.component';
-import { MenuComponent } from './menu/menu.component';
-import { OrderComponent } from './order/order.component';
-import { WaitingComponent } from './waiting/waiting.component';
-import { BillComponent } from './bill/bill.component';
 
 import { AuthService } from './services/auth.service';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { RestaurantService } from './services/restaurant.service'
+import { ProductService } from './services/product.service'
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { MenuComponent } from './menu/menu.component';
 
 import {routes} from './routes';
 
@@ -30,11 +28,8 @@ import {routes} from './routes';
     UserprofileComponent,
     SignupformComponent,
     NavComponent,
-    RestaurantsComponent,
-    MenuComponent,
-    OrderComponent,
-    WaitingComponent,
-    BillComponent
+    RestaurantListComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +37,11 @@ import {routes} from './routes';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, IsLoggedInService, RestaurantService],
+  providers: [AuthService,
+              IsLoggedInService,
+              RestaurantService,
+              ProductService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

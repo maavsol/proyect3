@@ -4,8 +4,8 @@ var restaurantController = require('../controllers/restaurantController.js');
 
 router.get('/', restaurantController.list);
 router.get('/:id', restaurantController.show);
-router.post('/', restaurantController.create);
-router.put('/:id', restaurantController.update);
-router.delete('/:id', restaurantController.remove);
+// router.post('/', restaurantController.create);
+// router.put('/:id', restaurantController.update);
+// router.delete('/:id', restaurantController.remove);
 
 module.exports = router;

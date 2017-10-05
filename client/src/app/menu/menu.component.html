@@ -1,5 +1,4 @@
-<p>
-  menu works!
-</p>
+<div *ngIf="product">
 
-<a [routerLink]="['/order']">Your order</a>
+  <p>{{product | json}}</p>
+</div>
