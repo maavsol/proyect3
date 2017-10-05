@@ -19,24 +19,25 @@ const product = [{
 }
 ]
 
+
 Product.create(product)
   .then(products => {
-    return Promise.all(products.map(products => {
+    return Promise.all(products.map(product => {
       return Restaurant.updateOne({
-          name: product.restaurant
-        }, {
+        "name" : "la almeja dorada"
+      }, {
           $push: {
             products: product._id
           }
         })
         .exec()
-        .then(restaurant => {
+        .then(product => {
           console.log(product);
         })
     }))
   })
-  .then((products) => {
-    console.log("Pushed products to restaurants");
+  .then((restaurants) => {
+    console.log("Pushed products to restaurant");
     mongoose.connection.close()
   })
   .catch(err => console.log(err))
