@@ -36,7 +36,7 @@ export class RestaurantListComponent implements OnInit {
       restaurantId:restaurant._id
     }
     this.orderService.newOrder(referents)
-    .subscribe(() => {this.router.navigate(['/restaurants'])},
+    .subscribe(() => {this.router.navigate(['/restaurants', restaurant._id])},
   );
   }
 }
