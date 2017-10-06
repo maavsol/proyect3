@@ -23,9 +23,7 @@ const product = [{
 Product.create(product)
   .then(products => {
     return Promise.all(products.map(product => {
-      return Restaurant.updateOne({
-        "name" : "la almeja dorada"
-      }, {
+      return Restaurant.updateMany({}, {
           $push: {
             products: product._id
           }

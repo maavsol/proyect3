@@ -24,7 +24,8 @@ export class MenuComponent implements OnInit {
       this.id = params['id']
       this.restaurantService.getRestaurant(this.id)
       .subscribe(product => {
-        this.product=product
+        //this.product = JSON.parse(product.products)
+        this.product = product.products
           })
     })
   }

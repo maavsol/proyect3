@@ -1,5 +1,17 @@
-<div *ngIf="product">
+<!-- <div *ngIf="product">
 
   <p>{{product | json}}</p>
 
 </div>
+
+<a [routerLink]="['/restaurants']"> Back to list </a> -->
+
+<div *ngFor='let a of product'>
+  <p>{{a.name}}</p>
+  <p>${{a.price}}</p>
+
+</div>
+
+
+<a [routerLink]="['/restaurants']"> Back to restaurant list </a>
+<!--  -->
