@@ -7,6 +7,7 @@ import {SignupformComponent} from './signupform/signupform.component';
 import {IsLoggedInService} from './services/isLoggedIn.canactivate.service';
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { MenuComponent } from './menu/menu.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },

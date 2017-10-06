@@ -8,4 +8,4 @@ var restaurantSchema = new Schema({
 	'products': [{type:Schema.Types.ObjectId, ref:'Product'}]
 });
 
-module.exports = mongoose.model('restaurant', restaurantSchema);
+module.exports = mongoose.model('Restaurant', restaurantSchema);

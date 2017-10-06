@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { SignupformComponent } from './signupform/signupform.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
+import { MenuComponent } from './menu/menu.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 import { AuthService } from './services/auth.service';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
-import { RestaurantService } from './services/restaurant.service'
-import { ProductService } from './services/product.service'
-import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
-import { MenuComponent } from './menu/menu.component';
+import { RestaurantService } from './services/restaurant.service';
+import { ProductService } from './services/product.service';
+import { OrderService } from './services/order.service';
 
 import {routes} from './routes';
 
@@ -29,7 +31,8 @@ import {routes} from './routes';
     SignupformComponent,
     NavComponent,
     RestaurantListComponent,
-    MenuComponent
+    MenuComponent,
+    OrderlistComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import {routes} from './routes';
   providers: [AuthService,
               IsLoggedInService,
               RestaurantService,
-              ProductService],
+              ProductService,
+              OrderService],
 
   bootstrap: [AppComponent]
 })

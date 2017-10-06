@@ -3,6 +3,10 @@ var Schema   = mongoose.Schema;
 
 var orderSchema = new Schema({
 	'date' : Date,
+	'restaurantId': {
+	 	type: Schema.Types.ObjectId,
+	 	ref: 'Restaurant'
+	},
 	'productId' : {
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'Product'

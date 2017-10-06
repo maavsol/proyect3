@@ -22,6 +22,8 @@ export class AuthService {
     }
 
     public getUser(){
+      console.log("esto vale en el servicio mi user")
+      console.log(this.user)
       return this.user;
     }
 

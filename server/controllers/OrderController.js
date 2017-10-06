@@ -1,4 +1,6 @@
 var orderModel = require('../models/orderModel.js');
+var userModel = require('../models/User.js');
+var productModel = require('../models/productModel.js');
 
 module.exports = {
 
@@ -21,17 +23,16 @@ module.exports = {
   },
 
   create: function(req, res) {
+console.log("esto me llega al back " )
+console.log(req.user)
     const order = new orderModel({
-      date: req.body.date,
-      productId: req.body.productId,
-      userId: req.body.userId
+      restaurantId : req.body.id
+
+
   });
 
     order.save()
-      .then(order => res.status(201).json({
-        message: 'new order added',
-        order: order
-      }))
+      .then(order => res.status(201).json(order))
       .catch(e => res.status(500).json({
         error: e.message
       }));

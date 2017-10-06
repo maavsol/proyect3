@@ -1,6 +1,6 @@
 <div *ngFor="let restaurant of restaurants | async">
    <h3> {{ restaurant.name }} </h3>
-   <img [src]="restaurant.image">
+   <!-- <img [src]="restaurant.image"> -->
    <p> {{ restaurant.description }}</p>
-   <a [routerLink]="['/restaurants', restaurant._id]">Go to this restaurant</a>
+<a (click)="goToRestaurant(restaurant)">Go to this restaurant</a>
  </div>
