@@ -57,6 +57,9 @@ require('./passport/serializers');
 require('./passport/local');
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(function(req, res) {
+//   res.sendFile(__dirname + '/public/index.html');
+// });
 
 
 app.use('/order', order);

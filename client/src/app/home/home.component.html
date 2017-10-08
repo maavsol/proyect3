@@ -1,3 +1,8 @@
-<h1>Welcome</h1>
+<div *ngIf="!user">
+  <h2>NO USER LOGGED IN PAGINA DE INICIO</h2>
+</div>
 
-<a [routerLink]="['/restaurants']">Restaurants</a>
+<div *ngIf="user">
+  <h2> DASHBOARD </h2>
+  <a [routerLink]="['/restaurants']">Restaurants</a>
+</div>
