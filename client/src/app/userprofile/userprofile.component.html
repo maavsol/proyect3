@@ -1,4 +1,4 @@
-<div *ngIf="!user">
+<!-- <div *ngIf="!user">
   <h2>NO USER LOGGED IN</h2>
 </div>
 
@@ -8,4 +8,25 @@
   <pre> {{ user | json }} </pre>
 
   <button (click)="auth.logout().subscribe()"> logout </button>
+</div> -->
+
+<div class="userprofile">
+  <div *ngIf="!user">
+    <h2>NO USER LOGGED IN</h2>
+  </div>
+
+  <div *ngIf="user">
+    <h2> You are now logged in as {{ user.username }}!! </h2>
+    <p>Username: {{user.username}}</p>
+    <p>First Name: {{user.firstName}}</p>
+    <p>Last Name: {{user.lastName}}</p>
+    <p>Email: {{user.email}}</p>
+
+
+    <!-- <p> Here's the user object </p>
+    <pre> {{ user | json }} </pre> -->
+
+    <button (click)="auth.logout().subscribe()"> Log Out </button>
+  </div>
+
 </div>
