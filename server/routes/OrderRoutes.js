@@ -6,6 +6,6 @@ router.get('/', orderController.list);
 router.get('/:id', orderController.show);
 router.post('/', orderController.create);
 router.put('/:id', orderController.update);
-router.delete('/:id', orderController.remove);
+// router.delete('/:id', orderController.remove);
 
 module.exports = router;

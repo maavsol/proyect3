@@ -1,14 +1,13 @@
 
 
-<div style="text-align:center">
-  <ul>
-  <a [routerLink]="['/']">Home</a>
-  <a [routerLink]="['/user']">User Profile</a>
-  <a [routerLink]="['/login']">Login</a>
-  <a [routerLink]="['/signup']">Signup</a>
-  <a [routerLink]="['/logout']">logout</a>
-  <!-- <a [routerLink]="['/home']" (click)="auth.logout().subscribe()">logout</a> -->
-
-
-
-  </ul>
+  <nav>
+    <div class="nav-wrapper" style="text-align:center">
+      <ul>
+        <li><a [routerLink]="['/']">Home</a></li>
+          <li><a [routerLink]="['/user']">User Profile</a></li>
+          <li><a [routerLink]="['/login']">Login</a></li>
+          <li><a [routerLink]="['/signup']">Signup</a></li>
+          <li><a [routerLink]="['/logout']">logout</a></li>
+      </ul>
+  </div>
+  </nav>

@@ -1,4 +1,5 @@
 <div *ngIf="!user">
+  <app-nav></app-nav>
   <div class="row container">
     <h2 class="header">Asapp</h2>
     <p class="grey-text text-darken-3 lighten-3">The extra p is for please.</p>
@@ -28,12 +29,21 @@
 </div>
 
 <div *ngIf="user">
+
+<app-nav></app-nav>
+
   <div class="row container">
     <h2 class="header">Asapp</h2>
     <p class="grey-text text-darken-3 lighten-3">The extra p is for please.</p>
   </div>
 
-  <a [routerLink]="['/restaurants']">Restaurants</a>
+  <div class="col 12">
+    <img src="http://res.cloudinary.com/ddesyiweo/image/upload/v1507470896/food_pattern_background_wallpaper_free_hd-2xu97fqitzt8g7fr8lup6y_lwcp07.jpg" width= "100%">
+  </div>
+  <div>
+    <p>Have a waiter in your pocket</p>
+    <a [routerLink]="['/restaurants']">See restaurants</a>
+  </div>
 </div>
 
 
