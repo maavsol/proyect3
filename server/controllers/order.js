@@ -1,21 +1,20 @@
-var orderModel = require('../models/orderModel.js');
-var userModel = require('../models/User.js');
-var productModel = require('../models/productModel.js');
-var restaurantModel = require('../models/restaurantModel.js')
+const userModel = require('../models/User')
+const orderModel = require('../models/order')
+const productModel = require('../models/product')
+const restaurantModel = require('../models/restaurant')
 
 module.exports = {
 
-
-  list: function(req, res) {
+  list: (req, res) => {
     orderModel.find()
       .then(orders => res.status(200).json(orders))
       .catch(e => res.status(500).json({
         error: e.message
-      }));
+      }))
   },
 
-  show: function(req, res) {
-    const id = req.params.id;
+  show: (req, res) => {
+    const id = req.params.id
     console.log("id en el back ")
     console.log(id)
     orderModel.findById(id)
@@ -29,30 +28,28 @@ module.exports = {
       }))
   },
 
-  create: function(req, res) {
+  create: (req, res) => {
     console.log("esto me llega al back ")
     console.log(req.body)
     const order = new orderModel({
       productId: req.body
-
-
-    });
+    })
 
     order.save()
       .then(order => res.status(201).json(order))
       .catch(e => res.status(500).json({
         error: e.message
-      }));
+      }))
   },
 
   update: function(req, res) {
 
     const {
       productId
-    } = req.body;
+    } = req.body
     const updates = {
       productId
-    };
+    }
 
     orderModel.findByIdAndUpdate(req.params.id, updates, {
         new: true
@@ -60,13 +57,6 @@ module.exports = {
       .then(order => res.status(200).json(order))
       .catch(e => res.status(500).json({
         error: e.message
-      }));
+      }))
   }
-
-  // remove: function(req, res) {
-  //   const orderId = req.params.id;
-  //   productModel.findByIdAndRemove(orderId)
-  //   .then(res.status(204).json({message: 'product deleted'}))
-  //   .catch(e => res.status(500).json({error:e.message}))
-  // }
-};
+}

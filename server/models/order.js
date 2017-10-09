@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema   = mongoose.Schema
 
-var orderSchema = new Schema({
+const orderSchema = new Schema({
 	'date' : Date,
 	'restaurantId': {
 	 	type: Schema.Types.ObjectId,
@@ -12,6 +12,6 @@ var orderSchema = new Schema({
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'User'
 	}
-});
+})
 
-module.exports = mongoose.model('order', orderSchema);
+module.exports = mongoose.model('order', orderSchema)
