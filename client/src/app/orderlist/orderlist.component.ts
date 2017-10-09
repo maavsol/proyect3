@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrderService} from '../services/order.service';
-import { RestaurantService } from '../services/restaurant.service';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -22,7 +21,12 @@ export class OrderlistComponent implements OnInit {
 
   ngOnInit() {
   }
-  placeOrderAndReset(){
+  placeOrderAndReset(id){
     this.orderService.placeOrderAndReset().subscribe(result => console.log(result))
   }
+
+  seeMyOrders(){
+    this.orderService.getOrdertList().subscribe(result => this.orderlist = result )
+  }
+
 }

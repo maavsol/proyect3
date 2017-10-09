@@ -14,7 +14,6 @@ export class MenuComponent implements OnInit {
   productId:string;
   product:Object;
   id:String;
-  order: Object;
 
   productsOrdered: Array<string> = []
 

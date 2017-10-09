@@ -19,10 +19,16 @@ export class OrderService {
   getOrdertList() {
     return this.http.get(`${this.BASEURL}/order`)
       .map((res) => {
-        console.log(res)
-        return res.json()
+      return res.json()
       });
   }
+
+  // getOrderShow(id){
+  //   return this.http.get(`${this.BASEURL}/order/${id}`)
+  //     .map((res) => {
+  //     return res.json()
+  //   })
+  // }
 
   pushProductToOrder(productId:string){
      this.productsOrdered.push(productId)

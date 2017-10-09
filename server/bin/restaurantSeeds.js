@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Restaurant = require('../models/restaurantModel');
+const Restaurant = require('../models/restaurant');
 const {dbURL} = require('../config/database');
 
 mongoose.connect(dbURL, {useMongoClient: true});

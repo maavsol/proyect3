@@ -2,8 +2,15 @@
   orderlist works!
 </p>
 
-<p>{{ orderlist | json}}</p>
+<div  *ngFor="let item of orderlist">
+<ul>
+  <li>
+     {{item._id}}
+  </li>
+</ul>
+</div>
 
 
 
 <button (click)="placeOrderAndReset()">Create Order</button>
+<button (click)="seeMyOrders()">See my order</button>

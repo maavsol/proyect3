@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const Restaurant = require('../models/restaurantModel');
-const Product = require('../models/productModel');
+const Restaurant = require('../models/restaurant');
+const Product = require('../models/product');
 const {dbURL} = require('../config/database');
 
 mongoose.connect(dbURL, {useMongoClient: true});
