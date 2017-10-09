@@ -20,23 +20,23 @@ module.exports = {
     console.log(id)
     orderModel.findById(id)
 
-      .then(o =>
-        {
-         res.status(200).json(o)
-      console.log(o)})
+      .then(o => {
+        res.status(200).json(o)
+        console.log(o)
+      })
       .catch(e => res.status(500).json({
         error: e.message
       }))
   },
 
   create: function(req, res) {
-    console.log("esto me llega al back " )
+    console.log("esto me llega al back ")
     console.log(req.body)
     const order = new orderModel({
-      productId : req.body
+      productId: req.body
 
 
-  });
+    });
 
     order.save()
       .then(order => res.status(201).json(order))
@@ -47,12 +47,20 @@ module.exports = {
 
   update: function(req, res) {
 
-    const {productId} = req.body;
-    const updates = {productId};
+    const {
+      productId
+    } = req.body;
+    const updates = {
+      productId
+    };
 
-    orderModel.findByIdAndUpdate(req.params.id, updates, {new:true})
-    .then(order => res.status(200).json(order))
-    .catch(e => res.status(500).json({error:e.message}));
+    orderModel.findByIdAndUpdate(req.params.id, updates, {
+        new: true
+      })
+      .then(order => res.status(200).json(order))
+      .catch(e => res.status(500).json({
+        error: e.message
+      }));
   }
 
   // remove: function(req, res) {

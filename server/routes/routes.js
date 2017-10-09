@@ -1,19 +1,18 @@
 const router = require('express').Router()
-const orderController = require('../controllers/orderController.js')
-const productController = require('../controllers/productController.js')
-const restaurantController = require('../controllers/restaurantController.js')
+const OrderController = require('../controllers/order')
+const ProductController = require('../controllers/product')
+const RestaurantController = require('../controllers/restaurant')
 
+router.get('/order/', OrderController.list)
+router.get('/order/:id', OrderController.show)
+router.post('/order/', OrderController.create)
+router.put('/order/:id', OrderController.update)
+// router.delete('/:id', OrderController.remove)
 
-router.get('/order/', orderController.list)
-router.get('/order/:id', orderController.show)
-router.post('/order/', orderController.create)
-router.put('/order/:id', orderController.update)
-// router.delete('/:id', orderController.remove)
+router.get('/product/', ProductController.list)
+router.get('/product/:id', ProductController.show)
 
-router.get('/product/', productController.list);
-router.get('/product/:id', productController.show);
-
-router.get('/restaurant/', restaurantController.list);
-router.get('/restaurant/:id', restaurantController.show);
+router.get('/restaurant/', RestaurantController.list)
+router.get('/restaurant/:id', RestaurantController.show)
 
 module.exports = router
