@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {OrderService} from '../services/order.service';
+import { RestaurantService } from '../services/restaurant.service';
 import {Observable} from 'rxjs/Observable';
 
 @Component({
@@ -9,11 +10,10 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./orderlist.component.css']
 })
 export class OrderlistComponent implements OnInit {
-  // order:string = 'soy una lista'
   BASE_URL: string = 'http://localhost:3000';
+  orderlist: Array<any>;
 
-  order:Object;
-  id: String
+
   constructor(
     private router:Router,
     private route:ActivatedRoute,
@@ -21,14 +21,8 @@ export class OrderlistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      console.log(this.order)
-      this.id = params['id']
-      this.orderService.getOrder()
-      .subscribe(order => {
-        this.order = order
-      })
-    })
   }
-
+  placeOrderAndReset(){
+    this.orderService.placeOrderAndReset().subscribe(result => console.log(result))
+  }
 }

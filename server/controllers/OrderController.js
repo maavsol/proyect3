@@ -16,8 +16,14 @@ module.exports = {
 
   show: function(req, res) {
     const id = req.params.id;
+    console.log("id en el back ")
+    console.log(id)
     orderModel.findById(id)
-      .then(o => res.status(200).json(o))
+
+      .then(o =>
+        {
+         res.status(200).json(o)
+      console.log(o)})
       .catch(e => res.status(500).json({
         error: e.message
       }))
@@ -25,9 +31,9 @@ module.exports = {
 
   create: function(req, res) {
     console.log("esto me llega al back " )
-    console.log(req.user)
+    console.log(req.body)
     const order = new orderModel({
-      restaurantId : req.body.id
+      productId : req.body
 
 
   });

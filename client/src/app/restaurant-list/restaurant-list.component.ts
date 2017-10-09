@@ -27,16 +27,22 @@ export class RestaurantListComponent implements OnInit {
     this.user = this.userService.getUser()
   }
 
-  goToRestaurant(restaurant) {
-    console.log("esto recojo del formulario" )
-    console.log(this.user)
-    console.log(restaurant)
-    const referents = {
-      userId:this.user._id,
-      restaurantId:restaurant._id
-    }
-    this.orderService.newOrder(referents)
-    .subscribe(() => {this.router.navigate(['/restaurants', restaurant._id])},
-  );
+  goToRestaurant(restaurant){
+    const restaurantId = restaurant._id
+    this.restaurantService.getRestaurant(restaurantId)
+    .subscribe(()=> {this.router.navigate(['/restaurants', restaurantId])})
   }
+
+  // goToRestaurant(restaurant) {
+  //   console.log("esto recojo del formulario" )
+  //   console.log(this.user)
+  //   console.log(restaurant)
+  //   const referents = {
+  //     userId:this.user._id,
+  //     restaurantId:restaurant._id
+  //   }
+  //   this.orderService.newOrder(referents)
+  //   .subscribe(() => {this.router.navigate(['/restaurants', restaurant._id])},
+  // );
+  // }
 }

@@ -7,10 +7,7 @@ var orderSchema = new Schema({
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'Restaurant'
 	},
-	'productId' : {
-	 	type: Schema.Types.ObjectId,
-	 	ref: 'Product'
-	},
+	'productId' : [],
 	'userId' : {
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'User'

@@ -2,9 +2,11 @@
 <div *ngFor='let a of product'>
   <p>{{a.name}}</p>
   <p>${{a.price}}</p>
-<button (click)="addToOrder(order)">Add</button>
+<button (click)="addProductToOrder(a._id)">Add</button>
+<!-- <button (click)="removeProductFromOrder(a._id)">Remove</button> -->
 </div>
 
 <app-orderlist></app-orderlist>
+
 
 <a [routerLink]="['/restaurants']"> Back to restaurant list </a>
