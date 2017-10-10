@@ -40,7 +40,9 @@ export class MenuComponent implements OnInit {
   }
 
   placeOrderAndReset(){
-    this.orderService.placeOrderAndReset().subscribe()
+    this.orderService.placeOrderAndReset().subscribe(pedido =>{
+      this.id = pedido._id
+    })
     this.orderService.getOneOrder(this.id)
     .subscribe(() => {this.router.navigate(['/order', this.id])
     })

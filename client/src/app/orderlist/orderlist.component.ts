@@ -13,23 +13,31 @@ export class OrderlistComponent implements OnInit {
   orderlist: Array<any>;
   oneorder: Object;
   orderid: string;
+  id:string;
 
   constructor(
     private router:Router,
     private route:ActivatedRoute,
     private orderService: OrderService,
-  ) { }
+  ) {
+    this.route.params.subscribe(params=>{
+      this.id = params['id']
+      this.orderService.getOneOrder(this.id)
+      .subscribe(order=>
+      this.oneorder = order)
 
+    })
+}
   ngOnInit() {
   }
 
 
+  // seeOneOrder(){
+  //   this.orderService.getOneOrder(this.orderid).subscribe(result => this.oneorder = result)
+  // }
   // seeMyOrders(){
   //   this.orderService.getOrdertList().subscribe(result => this.orderlist = result )
   // }
 
-  seeOneOrder(){
-    this.orderService.getOneOrder(this.orderid).subscribe(result => this.oneorder = result)
-  }
 
 }
