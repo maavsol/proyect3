@@ -10,8 +10,10 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   user: object
 
-  constructor(public auth: AuthService) {
-    this.user = this.auth.getUser()
+  constructor(public auth:AuthService) {
+    this.user = this.auth.getUser();
+    this.auth.getLoginEventEmitter()
+        .subscribe( user => this.user=user );
   }
 
   ngOnInit() {

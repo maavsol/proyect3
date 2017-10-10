@@ -22,6 +22,7 @@ import { ProductService } from './services/product.service';
 import { OrderService } from './services/order.service';
 
 import {routes} from './routes';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import {routes} from './routes';
     RestaurantListComponent,
     MenuComponent,
     OrderlistComponent,
-    NavComponent
+    NavComponent,
+    FilterPipe,
+
+
   ],
   imports: [
     BrowserModule,

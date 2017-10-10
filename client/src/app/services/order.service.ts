@@ -23,15 +23,9 @@ export class OrderService {
       });
   }
 
-  // getOrderShow(id){
-  //   return this.http.get(`${this.BASEURL}/order/${id}`)
-  //     .map((res) => {
-  //     return res.json()
-  //   })
-  // }
 
-  pushProductToOrder(productId:string){
-     this.productsOrdered.push(productId)
+  pushProductToOrder(products:string){
+     this.productsOrdered.push(products)
      console.log(this.productsOrdered)
   }
 

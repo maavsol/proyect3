@@ -16,15 +16,35 @@
   </div>
 
   <div *ngIf="user">
-    <h2> You are now logged in as {{ user.username }}!! </h2>
-    <p>Username: {{user.username}}</p>
-  
+
+
+    <h2> Welcome to your profile {{ user.username }}</h2>
+
+<div class ="background">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+            <div class="avatar">
+              <i class="large material-icons">person</i>
+            </div>
+            <div class="content">
+              <p>User<br> {{user.username}} </p>
+
+              <button (click)="auth.logout().subscribe()" class="waves-effect waves-light btn"> Log Out </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
     <!-- <p> Here's the user object </p>
     <pre> {{ user | json }} </pre> -->
-
-    <button (click)="auth.logout().subscribe()"> Log Out </button>
+</div>
   </div>
 
 </div>

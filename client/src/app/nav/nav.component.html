@@ -1,13 +1,28 @@
-
-
-  <nav>
-    <div class="nav-wrapper" style="text-align:center">
-      <ul>
-        <li><a [routerLink]="['/']">Home</a></li>
-          <li><a [routerLink]="['/user']">User Profile</a></li>
-          <li><a [routerLink]="['/login']">Login</a></li>
-          <li><a [routerLink]="['/signup']">Signup</a></li>
-          <li><a [routerLink]="['/logout']">logout</a></li>
-      </ul>
+<nav>
+  <div class="nav-wrapper" style="text-align:center">
+    <ul>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li *ngIf="user"><a [routerLink]="['/user']">User Profile</a></li>
+      <li *ngIf="!user"><a [routerLink]="['/login']">Login</a></li>
+      <li *ngIf="!user"><a [routerLink]="['/signup']">Signup</a></li>
+      <li *ngIf="user"><a [routerLink]="['/']" (click)="auth.logout().subscribe()">Logout</a></li>
+    </ul>
   </div>
-  </nav>
+</nav>
+
+<!-- <ul id="slide-out" class="side-nav">
+  <div class="background-color">
+    <p><a><img src="https://res.cloudinary.com/manueldpl91/image/upload/v1507373899/logo_s2t5qn.svg" alt="Solidity Learn"></a></p>
+    <p><a>{{title}}</a></p>
+    <li *ngIf="!user"><a [routerLink]="['/login']">Log In</a></li>
+    <li *ngIf="!user"><a [routerLink]="['/signup']">Sing Up</a></li>
+    <li *ngIf="user"><a [routerLink]="['/user']">User</a></li>
+    <li *ngIf="user"><a [routerLink]="['/tutorials']">Tutorials</a></li>
+    <li *ngIf="user"><a [routerLink]="['/home']" (click)="auth.logout().subscribe()"> Log Out </a></li>
+  </div>
+  <li *ngIf="user"><a *ngIf="user.role==='admin'" [routerLink]="['/admin']">Admin</a></li>
+</ul>
+<div class="centerNav">
+  <a data-activates="slide-out" class="button-collapse pointer"><i class="medium material-icons">dehaze
+    </i></a>
+</div> -->

@@ -11,7 +11,9 @@ import {Observable} from 'rxjs/Observable';
 })
 export class MenuComponent implements OnInit {
   BASE_URL: string = 'http://localhost:3000';
-  productId:string;
+  nameOfProd:string;
+  name: string;
+  price: string;
   product:Object;
   id:String;
 
@@ -33,8 +35,8 @@ export class MenuComponent implements OnInit {
           })
     })
   }
-  addProductToOrder(productId){
-    this.orderService.pushProductToOrder(productId)
+  addProductToOrder(products){
+    this.orderService.pushProductToOrder(products)
   }
   // removeProductFromOrder(productId){
   //   this.orderService.removeProductFromOrder(productId)

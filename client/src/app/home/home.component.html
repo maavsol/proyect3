@@ -1,8 +1,7 @@
 <div *ngIf="!user">
   <app-nav></app-nav>
   <div class="row container">
-    <h2 class="header">Asapp</h2>
-    <p class="grey-text text-darken-3 lighten-3">The extra p is for please.</p>
+    <h2 class="header" id ="logo">Asapp</h2>
   </div>
   <div class="parallax-container">
     <div class="parallax"><img src="http://res.cloudinary.com/ddesyiweo/image/upload/v1507470896/food_pattern_background_wallpaper_free_hd-2xu97fqitzt8g7fr8lup6y_lwcp07.jpg"></div>
@@ -33,34 +32,29 @@
 <app-nav></app-nav>
 
   <div class="row container">
-    <h2 class="header">Asapp</h2>
-    <p class="grey-text text-darken-3 lighten-3">The extra p is for please.</p>
+    <h2 class="header" id ="logo">Asapp</h2>
   </div>
 
-  <div class="col 12">
+  <div class="col 12 father">
+    <button class ="waves-effect waves-light btn pos"><a [routerLink]="['/restaurants']" class ="style">See restaurants</a></button>
     <img src="http://res.cloudinary.com/ddesyiweo/image/upload/v1507470896/food_pattern_background_wallpaper_free_hd-2xu97fqitzt8g7fr8lup6y_lwcp07.jpg" width= "100%">
-  </div>
-  <div>
-    <p>Have a waiter in your pocket</p>
-    <a [routerLink]="['/restaurants']">See restaurants</a>
-  </div>
-</div>
 
+
+
+  </div>
+
+</div>
 
 <footer class="page-footer">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
-        <h5 class="white-text">Footer Content</h5>
-        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <p class="grey-text text-lighten-4">Join thousands of people who are part of the Asapp community</p>
       </div>
       <div class="col l4 offset-l2 s12">
-        <h5 class="white-text">Links</h5>
+        <h5 class="white-text">Information</h5>
         <ul>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          <li><a class="grey-text text-lighten-3" href="https://github.com/maavsol/proyect3">Github</a></li>
         </ul>
       </div>
     </div>
@@ -68,7 +62,7 @@
   <div class="footer-copyright">
     <div class="container">
       © 2017 All rights reserved
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+
     </div>
   </div>
 </footer>
