@@ -16,5 +16,6 @@ export const routes: Routes = [
     { path: 'signup',  component: SignupformComponent,  },
     { path: 'restaurants',  component: RestaurantListComponent,  },
     { path: 'restaurants/:id', component: MenuComponent },
+    { path: 'order/:id', component: OrderlistComponent},
     { path: '**', redirectTo: '' }
 ];

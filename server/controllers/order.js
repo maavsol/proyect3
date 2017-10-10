@@ -6,7 +6,7 @@ const restaurantModel = require('../models/restaurant')
 module.exports = {
 
   list: (req, res) => {
-    orderModel.find()
+    orderModel.find().populate('products').exec()
       .then(orders => res.status(200).json(orders))
       .catch(e => res.status(500).json({
         error: e.message
@@ -17,7 +17,7 @@ module.exports = {
     const id = req.params.id
     console.log("id en el back ")
     console.log(id)
-    orderModel.findById(id)
+    orderModel.findById(id).populate('products').exec()
 
       .then(o => {
         res.status(200).json(o)
@@ -32,7 +32,7 @@ module.exports = {
     console.log("esto me llega al back ")
     console.log(req.body)
     const order = new orderModel({
-      productId: req.body
+      products: req.body
     })
 
     order.save()

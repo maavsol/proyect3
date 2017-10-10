@@ -38,6 +38,13 @@ export class MenuComponent implements OnInit {
   addProductToOrder(products){
     this.orderService.pushProductToOrder(products)
   }
+
+  placeOrderAndReset(){
+    this.orderService.placeOrderAndReset().subscribe()
+    this.orderService.getOneOrder(this.id)
+    .subscribe(() => {this.router.navigate(['/order', this.id])
+    })
+  }
   // removeProductFromOrder(productId){
   //   this.orderService.removeProductFromOrder(productId)
   // }

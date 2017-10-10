@@ -11,7 +11,8 @@ import {Observable} from 'rxjs/Observable';
 export class OrderlistComponent implements OnInit {
   BASE_URL: string = 'http://localhost:3000';
   orderlist: Array<any>;
-
+  oneorder: Object;
+  orderid: string;
 
   constructor(
     private router:Router,
@@ -21,12 +22,14 @@ export class OrderlistComponent implements OnInit {
 
   ngOnInit() {
   }
-  placeOrderAndReset(id){
-    this.orderService.placeOrderAndReset().subscribe(result => console.log(result))
-  }
 
-  seeMyOrders(){
-    this.orderService.getOrdertList().subscribe(result => this.orderlist = result )
+
+  // seeMyOrders(){
+  //   this.orderService.getOrdertList().subscribe(result => this.orderlist = result )
+  // }
+
+  seeOneOrder(){
+    this.orderService.getOneOrder(this.orderid).subscribe(result => this.oneorder = result)
   }
 
 }

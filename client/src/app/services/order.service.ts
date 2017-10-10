@@ -23,6 +23,11 @@ export class OrderService {
       });
   }
 
+  getOneOrder(id) {
+      return this.http.get(`${this.BASEURL}/order/${id}`)
+        .map((res) => res.json());
+  }
+
 
   pushProductToOrder(products:string){
      this.productsOrdered.push(products)
