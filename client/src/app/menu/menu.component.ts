@@ -10,7 +10,6 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  BASE_URL: string = 'http://localhost:3000';
   nameOfProd:string;
   name: string;
   price: string;

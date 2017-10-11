@@ -22,7 +22,6 @@ const restaurant = [{
   img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
   description: 'Denny’s Restaurant offers a range of delicious American food to their customers. They regularly serve Breakfast, Lunch and Dinner at a great price, and they also offer food especially catered to senior citizens and to the health conscious.',
   products: []
-  // orders:[]
 }]
 
 

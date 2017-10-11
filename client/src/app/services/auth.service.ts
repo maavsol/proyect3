@@ -4,11 +4,10 @@ import {Http} from '@angular/http';
 import 'rxjs';
 import {environment} from '../../environments/environment';
 
-const BASEURL:string = environment.BASEURL + "/auth";
 
 @Injectable()
 export class AuthService {
-
+  BASE_URL = environment.BASE_URL + '/auth'
   private user:object;
   private userLoginEvent:EventEmitter<any> = new EventEmitter<any>();
   private options = {withCredentials:true};
@@ -40,28 +39,28 @@ export class AuthService {
 
     signup(username,password) {
       console.log("entrooo")
-      return this.http.post(`${BASEURL}/signup`, {username,password}, this.options)
+      return this.http.post(`${this.BASE_URL}/signup`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
     login(username,password) {
-      return this.http.post(`${BASEURL}/login`, {username,password}, this.options)
+      return this.http.post(`${this.BASE_URL}/login`, {username,password}, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);
     }
 
     logout() {
-      return this.http.get(`${BASEURL}/logout`, this.options)
+      return this.http.get(`${this.BASE_URL}/logout`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(null))
         .catch(this.handleError);
     }
 
     isLoggedIn() {
-      return this.http.get(`${BASEURL}/loggedin`, this.options)
+      return this.http.get(`${this.BASE_URL}/loggedin`, this.options)
         .map(res => res.json())
         .map(user => this.emitUserLoginEvent(user))
         .catch(this.handleError);

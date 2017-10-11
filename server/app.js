@@ -38,9 +38,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-// app.use(function(req, res) {
-//   res.sendFile(__dirname + './public/index.html')
-// })
+
 
 app.use(session({
   secret: 'angular auth passport secret shh',
@@ -63,6 +61,8 @@ const routes = require('./routes/routes')
 const authRoutes = require('./routes/auth')
 app.use('/auth', authRoutes)
 app.use('/', routes)
+app.use((req, res)=>res.sendFile(__dirname + '/public/index.html'))
+
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found')

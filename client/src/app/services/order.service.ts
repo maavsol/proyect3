@@ -4,12 +4,10 @@ import 'rxjs/add/operator/map'
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Rx';
 
-const BASEURL: string = environment.BASEURL + "/auth";
 
 @Injectable()
 export class OrderService {
-
-  BASEURL: string = 'http://localhost:3000';
+  BASE_URL = environment.BASE_URL
 
   productsOrdered: Array<string> = [];
 
@@ -17,14 +15,14 @@ export class OrderService {
 
 
   getOrdertList() {
-    return this.http.get(`${this.BASEURL}/order`)
+    return this.http.get(`${this.BASE_URL}/order`)
       .map((res) => {
       return res.json()
       });
   }
 
   getOneOrder(id) {
-      return this.http.get(`${this.BASEURL}/order/${id}`)
+      return this.http.get(`${this.BASE_URL}/order/${id}`)
         .map((res) => res.json());
   }
 
@@ -35,7 +33,7 @@ export class OrderService {
   }
 
   placeOrderAndReset(){
-    return this.http.post(`${this.BASEURL}/order`, this.productsOrdered)
+    return this.http.post(`${this.BASE_URL}/order`, this.productsOrdered)
     .map((res) => res.json())
   }
 

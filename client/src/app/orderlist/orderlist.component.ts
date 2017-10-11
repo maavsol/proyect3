@@ -23,8 +23,8 @@ export class OrderlistComponent implements OnInit {
     this.route.params.subscribe(params=>{
       this.id = params['id']
       this.orderService.getOneOrder(this.id)
-      .subscribe(order=>
-      this.oneorder = order)
+      .subscribe(order =>
+      this.oneorder = order.products)
 
     })
 }

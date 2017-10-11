@@ -5,22 +5,19 @@ import { Observable }  from 'rxjs/Rx';
 
 import {environment} from '../../environments/environment';
 
-const BASEURL:string = environment.BASEURL + "/auth";
-
-
 @Injectable()
 export class ProductService {
+BASE_URL = environment.BASE_URL
 
-  BASEURL: string = 'http://localhost:3000';
     constructor(private http: Http) {}
 
     getList() {
-      return this.http.get(`${this.BASEURL}/product`)
+      return this.http.get(`${this.BASE_URL}/product`)
         .map((res) => res.json());
     }
 
     getProducts(id) {
-      return this.http.get(`${this.BASEURL}/product/${id}`)
+      return this.http.get(`${this.BASE_URL}/product/${id}`)
         .map((res) => res.json());
     }
 
