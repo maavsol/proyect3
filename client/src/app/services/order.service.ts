@@ -29,10 +29,11 @@ export class OrderService {
 
   pushProductToOrder(products:Object){
      this.productsOrdered.push(products);
+     
 
   }
 
-  removeProductFromOrder(product: string){
+  removeProductFromOrder(product: Object){
     this.productsOrdered.splice(this.productsOrdered.indexOf(product), 1);
   }
 
