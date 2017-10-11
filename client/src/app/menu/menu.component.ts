@@ -55,7 +55,5 @@ export class MenuComponent implements OnInit {
     })
 
   }
-  // removeProductFromOrder(productId){
-  //   this.orderService.removeProductFromOrder(productId)
-  // }
+
 }

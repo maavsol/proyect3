@@ -61,7 +61,8 @@ const routes = require('./routes/routes')
 const authRoutes = require('./routes/auth')
 app.use('/auth', authRoutes)
 app.use('/', routes)
-app.use((req, res)=>res.sendFile(__dirname + '/public/index.html'))
+
+app.use((req, res)=>res.sendFile(__dirname + './public/index.html'))
 
 
 app.use(function(req, res, next) {

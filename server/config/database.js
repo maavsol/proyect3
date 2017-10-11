@@ -1,11 +1,12 @@
 const path = require('path');
 const mongoose = require('mongoose');
+
 //para compilar
 // const dbURL = process.env.MONGODB_URI;
 //para trabajar en desarrollo
-const dbURL = 'mongodb://localhost/asapp'
+// const dbURL = 'mongodb://localhost/asapp'
 //para ejecutar las seeds
-// const dbURL = 'mongodb://admin:1234@ds113935.mlab.com:13935/asapp';
+const dbURL = process.env.MONGODB_URI
 
 
 mongoose.connect(dbURL)
