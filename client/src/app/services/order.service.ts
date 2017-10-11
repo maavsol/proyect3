@@ -27,8 +27,12 @@ export class OrderService {
   }
 
   pushProductToOrder(products:string){
-     this.productsOrdered.push(products)
-     console.log(this.productsOrdered)
+     this.productsOrdered.push(products);
+
+  }
+
+  removeProductFromOrder(product: string){
+    this.productsOrdered.splice(this.productsOrdered.indexOf(product), 1);
   }
 
   placeOrderAndReset(){

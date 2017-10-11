@@ -11,11 +11,10 @@ import { AuthService } from '../services/auth.service'
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  user: object;
+
   product:Object;
   orderId:string;
   restaurantId:string;
-  infoGeneral: Object;
 
   productsOrdered: Array<string> = []
 
@@ -37,8 +36,13 @@ export class MenuComponent implements OnInit {
     })
   }
   addProductToOrder(products){
-    this.orderService.pushProductToOrder(products)
+    this.orderService.pushProductToOrder(products);
+    this.productsOrdered=this.orderService.productsOrdered
 
+  }
+
+  deleteProduct(products){
+    this.orderService.removeProductFromOrder(products);
   }
 
   placeOrderAndReset(){
