@@ -16,8 +16,8 @@ export class MenuComponent implements OnInit {
   orderId:string;
   restaurantId:string;
 
-  productsOrdered: Array<string> = []
-  wholeInfoOrdered: Array <Object> = []
+  productsOrdered: Array<Object> = []
+
 
   constructor(
     private router:Router,
@@ -37,9 +37,8 @@ export class MenuComponent implements OnInit {
     })
   }
   addProductToOrder(products, allinfo){
-    this.orderService.pushProductToOrder(products, allinfo);
+    this.orderService.pushProductToOrder(products);
     this.productsOrdered=this.orderService.productsOrdered
-    this.wholeInfoOrdered = this.orderService.wholeInfoOrdered
   }
 
   deleteProduct(products){

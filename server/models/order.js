@@ -10,10 +10,7 @@ const orderSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Restaurant'
   },
-  'products': [{
-    type: Schema.Types.ObjectId,
-    ref: 'Product'
-  }]
+  'products': []
   // 'userId': {
   //   type: Schema.Types.ObjectId,
   //   ref: 'User'

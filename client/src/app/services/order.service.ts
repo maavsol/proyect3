@@ -9,8 +9,8 @@ import { Observable } from 'rxjs/Rx';
 export class OrderService {
   BASE_URL = environment.BASE_URL
 
-  productsOrdered: Array<string> = [];
-  wholeInfoOrdered: Array<Object> = [];
+  productsOrdered: Array<Object> = [];
+
 
   constructor(public http: Http) { }
 
@@ -27,9 +27,8 @@ export class OrderService {
         .map((res) => res.json());
   }
 
-  pushProductToOrder(products:string, allinfo: Object){
+  pushProductToOrder(products:Object){
      this.productsOrdered.push(products);
-     this.wholeInfoOrdered.push(allinfo);
 
   }
 

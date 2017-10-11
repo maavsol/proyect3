@@ -1,11 +1,11 @@
 <div *ngFor='let a of product'>
   <p>{{a.name}}</p>
   <p>${{a.price}}</p>
-  <button (click)="addProductToOrder(a._id, a)">Add</button>
+  <button (click)="addProductToOrder(a)">Add</button>
   <button (click)="deleteProduct()">Remove</button>
 </div>
 
-<div *ngFor='let b of wholeInfoOrdered'>
+<div *ngFor='let b of productsOrdered'>
   <p>{{b.name}}</p>
   <p>{{b.price}}</p>
 </div>

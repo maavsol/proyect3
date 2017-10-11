@@ -17,7 +17,7 @@ module.exports = {
     const id = req.params.id
     console.log("id en el back ")
     console.log(id)
-    orderModel.findById(id).populate('products userId').exec()
+    orderModel.findById(id)
 
       .then(o => {
         res.status(200).json(o)
