@@ -11,9 +11,10 @@ import { Observable } from 'rxjs/Observable';
 export class OrderlistComponent implements OnInit {
   BASE_URL: string = 'http://localhost:3000';
   orderlist: Array<any>;
-  oneorder: Object;
+  oneorder: Array<any>
   orderid: string;
   id: string;
+  totalsum: number=0;
 
   constructor(
     private router: Router,
@@ -25,15 +26,17 @@ export class OrderlistComponent implements OnInit {
       this.orderService.getOneOrder(this.id)
         .subscribe(order =>
           this.oneorder = order.products)
-
     })
   }
   ngOnInit() {
   }
 
-askForCheck(){
-
-}
-
-
+  isCheckOrdered: boolean = false;
+  askForCheck(){
+    this.isCheckOrdered = !this.isCheckOrdered
+    for(let i = 0; i<this.oneorder.length; i ++){
+      this.totalsum += this.oneorder[i].price
+      console.log(this.totalsum)
+    }
+  }
 }

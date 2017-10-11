@@ -1,18 +1,15 @@
-
-
-
-
 <div *ngFor= "let item of oneorder">
   <p>{{item.name}}</p>
   <p>${{item.price}}</p>
 </div>
 
+<button>Order More</button>
 
+<div *ngIf="isCheckOrdered">
+  <h5>Your check is coming..</h5>
+  <h6>Total price to pay</h6>
+  <p>{{totalsum}}</p>
+</div>
 
 
 <button (click)="askForCheck()">Check Please</button>
-
-
-
-<!-- <button (click)="placeOrderAndReset()">Create Order</button> -->
-<!-- <button (click)="seeOneOrder()">See my order</button> -->

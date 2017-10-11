@@ -48,7 +48,7 @@ module.exports = {
   update: function(req, res) {
 
     const {
-      productId
+      status
     } = req.body
     const updates = {
       productId
