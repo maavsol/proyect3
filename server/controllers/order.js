@@ -17,7 +17,7 @@ module.exports = {
     const id = req.params.id
     console.log("id en el back ")
     console.log(id)
-    orderModel.findById(id).populate('products').exec()
+    orderModel.findById(id).populate('products userId').exec()
 
       .then(o => {
         res.status(200).json(o)
@@ -31,8 +31,11 @@ module.exports = {
   create: (req, res) => {
     console.log("esto me llega al back ")
     console.log(req.body)
+    console.log(req.user)
+
     const order = new orderModel({
-      products: req.body
+      products: req.body,
+      // userId: req.user
     })
 
     order.save()

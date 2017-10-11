@@ -2,7 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const orderSchema = new Schema({
-  'date': Date,
+  'status': {
+    type: Boolean,
+    default: false
+  },
   'restaurantId': {
     type: Schema.Types.ObjectId,
     ref: 'Restaurant'
@@ -10,11 +13,17 @@ const orderSchema = new Schema({
   'products': [{
     type: Schema.Types.ObjectId,
     ref: 'Product'
-  }],
-  'userId': {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  }]
+  // 'userId': {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User'
+  // }
+}, {
+  timestamps: {
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   }
+
 })
 
 module.exports = mongoose.model('order', orderSchema)

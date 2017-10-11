@@ -26,7 +26,6 @@ export class OrderService {
         .map((res) => res.json());
   }
 
-
   pushProductToOrder(products:string){
      this.productsOrdered.push(products)
      console.log(this.productsOrdered)

@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RestaurantService} from '../services/restaurant.service';
 import {OrderService} from '../services/order.service'
 import {Observable} from 'rxjs/Observable';
+import { AuthService } from '../services/auth.service'
 
 @Component({
   selector: 'app-menu',
@@ -10,12 +11,11 @@ import {Observable} from 'rxjs/Observable';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  nameOfProd:string;
-  name: string;
-  price: string;
+  user: object;
   product:Object;
   orderId:string;
   restaurantId:string;
+  infoGeneral: Object;
 
   productsOrdered: Array<string> = []
 
@@ -23,8 +23,9 @@ export class MenuComponent implements OnInit {
     private router:Router,
     private route:ActivatedRoute,
     private restaurantService: RestaurantService,
-    private orderService: OrderService
-  ) { }
+    private orderService: OrderService,
+    private auth:AuthService
+  ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -37,11 +38,13 @@ export class MenuComponent implements OnInit {
   }
   addProductToOrder(products){
     this.orderService.pushProductToOrder(products)
+
   }
 
   placeOrderAndReset(){
     this.orderService.placeOrderAndReset().subscribe(pedido =>{
       this.orderId = pedido._id
+      console.log(pedido)
       this.orderService.getOneOrder(this.orderId)
       .subscribe(() => {this.router.navigate(['/order', this.orderId])
       })
