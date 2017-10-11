@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
-import {OrderService} from '../services/order.service';
-import {Observable} from 'rxjs/Observable';
+import { ActivatedRoute, Router } from '@angular/router';
+import { OrderService } from '../services/order.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-orderlist',
@@ -13,31 +13,27 @@ export class OrderlistComponent implements OnInit {
   orderlist: Array<any>;
   oneorder: Object;
   orderid: string;
-  id:string;
+  id: string;
 
   constructor(
-    private router:Router,
-    private route:ActivatedRoute,
+    private router: Router,
+    private route: ActivatedRoute,
     private orderService: OrderService,
   ) {
-    this.route.params.subscribe(params=>{
+    this.route.params.subscribe(params => {
       this.id = params['id']
       this.orderService.getOneOrder(this.id)
-      .subscribe(order =>
-      this.oneorder = order.products)
+        .subscribe(order =>
+          this.oneorder = order.products)
 
     })
-}
+  }
   ngOnInit() {
   }
 
+askForCheck(){
 
-  // seeOneOrder(){
-  //   this.orderService.getOneOrder(this.orderid).subscribe(result => this.oneorder = result)
-  // }
-  // seeMyOrders(){
-  //   this.orderService.getOrdertList().subscribe(result => this.orderlist = result )
-  // }
+}
 
 
 }

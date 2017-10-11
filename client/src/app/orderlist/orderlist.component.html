@@ -1,18 +1,16 @@
 
-YOUR ORDER
+
+
 
 <div *ngFor= "let item of oneorder">
   <p>{{item.name}}</p>
   <p>${{item.price}}</p>
 </div>
 
-<!-- <div  *ngFor="let item of orderlist">
-<ul>
-  <li>
-     {{item | json}}
-  </li>
-</ul>
-</div> -->
+
+
+
+<button (click)="askForCheck()">Check Please</button>
 
 
 

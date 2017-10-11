@@ -14,7 +14,8 @@ export class MenuComponent implements OnInit {
   name: string;
   price: string;
   product:Object;
-  id:String;
+  orderId:string;
+  restaurantId:string;
 
   productsOrdered: Array<string> = []
 
@@ -27,8 +28,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = params['id']
-      this.restaurantService.getRestaurant(this.id)
+      this.restaurantId = params['id']
+      this.restaurantService.getRestaurant(this.restaurantId)
       .subscribe(product => {
         this.product = product.products
           })
@@ -40,11 +41,12 @@ export class MenuComponent implements OnInit {
 
   placeOrderAndReset(){
     this.orderService.placeOrderAndReset().subscribe(pedido =>{
-      this.id = pedido._id
+      this.orderId = pedido._id
+      this.orderService.getOneOrder(this.orderId)
+      .subscribe(() => {this.router.navigate(['/order', this.orderId])
+      })
     })
-    this.orderService.getOneOrder(this.id)
-    .subscribe(() => {this.router.navigate(['/order', this.id])
-    })
+
   }
   // removeProductFromOrder(productId){
   //   this.orderService.removeProductFromOrder(productId)
