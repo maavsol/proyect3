@@ -3,7 +3,7 @@
   <p>${{item.price}}</p>
 </div>
 
-<button>Order More</button>
+<button class="waves-effect waves-light btn">Order More</button>
 
 <div *ngIf="isCheckOrdered">
   <h5>Your check is coming..</h5>
@@ -12,4 +12,4 @@
 </div>
 
 
-<button (click)="askForCheck()">Check Please</button>
+<button (click)="askForCheck()" class="waves-effect waves-light btn">Check Please</button>

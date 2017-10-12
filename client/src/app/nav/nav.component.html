@@ -1,11 +1,11 @@
 <nav>
   <div class="nav-wrapper" style="text-align:center">
     <ul>
-      <li><a [routerLink]="['/']">Home</a></li>
-      <li *ngIf="user"><a [routerLink]="['/user']">User Profile</a></li>
+      <li><a [routerLink]="['/']"><i class="material-icons">home</i></a></li>
+      <li *ngIf="user"><a [routerLink]="['/user']"><i class="material-icons">account_circle</i></a></li>
       <li *ngIf="!user"><a [routerLink]="['/login']">Login</a></li>
       <li *ngIf="!user"><a [routerLink]="['/signup']">Signup</a></li>
-      <li *ngIf="user"><a [routerLink]="['/']" (click)="auth.logout().subscribe()">Logout</a></li>
+      <li *ngIf="user"><a [routerLink]="['/']" (click)="auth.logout().subscribe()"><i class="material-icons">exit_to_app</i></a></li>
     </ul>
   </div>
 </nav>

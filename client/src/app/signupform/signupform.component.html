@@ -1,4 +1,4 @@
-
+<!--
     <form>
       <h2> Signup </h2>
       <label> Username </label>
@@ -8,4 +8,34 @@
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required [(ngModel)]="formInfo.password" name="password" />
       <br>
       <button class="btn btn-lg btn-primary btn-block btn-signin btn-color" type="submit" (click)="signup()"> signup </button>
+    </form> -->
+
+
+<div id='login-page' class='row'>
+  <div class='col s12 z-depth-4 card-panel'>
+    <form class='login-form'>
+      <div class="row">
+        <div class="input-field col s12 center">
+          <img src="http://res.cloudinary.com/ddesyiweo/image/upload/v1507800208/Captura_de_pantalla_2017-10-12_a_las_11.23.00_tzpqgt.png" class="responsive-img valign profile-image-login">
+        </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <input type="text" id="username" [(ngModel)]="formInfo.username" name="username" />
+          <label for="username" class="center-align">Username </label>
+        </div>
+      </div>
+      <div class="row margin">
+        <div class="input-field col s12">
+          <input type="password" id="password" [(ngModel)]="formInfo.password" name="password" />
+          <label for="password" class="center-align"> Password </label>
+        </div>
+      </div>
     </form>
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn waves-effect waves-light col s12 btn-color" type="submit" (click)="signup()"> signup </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,18 @@
+body{
+  font-family: thin;
+}
+
+.menu{
+  border: solid 1px pink;
+  background-color: pink;
+  border-radius: 5px;
+  height: 100px;
+  text-align: center
+
+}
+
 .pedido{
-  border: solid 1px black;
-  background-color: pink
+  border: solid 1px pink;
+  background-color: pink;
+  text-align: center
 }

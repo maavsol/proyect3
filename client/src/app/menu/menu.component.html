@@ -1,15 +1,19 @@
-<div *ngFor='let a of product' class = "pedido">
+<div *ngFor='let a of product' class="menu">
   <p>{{a.name}}</p>
   <p>${{a.price}}</p>
-  <button (click)="addProductToOrder(a)">Add</button>
-  <button (click)="deleteProduct(a)">Remove</button>
+  <button (click)="addProductToOrder(a)" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Add</button>
+  <button (click)="deleteProduct(a)" class="waves-effect waves-light btn"><i class="material-icons left">remove_circle_outline</i>Remove</button>
 </div>
 
-<div *ngFor='let b of productsOrdered'>
+<div *ngFor='let b of productsOrdered' class="pedido">
   <p>{{b.name}}</p>
   <p>{{b.price}}</p>
 </div>
+  <br>
 
-<button (click)="placeOrderAndReset()">Create Order</button>
-
-<a [routerLink]="['/restaurants']"> Back to restaurant list </a>
+<div>
+  <button (click)="placeOrderAndReset()" class="waves-effect waves-light btn">CONFIRM ORDER</button>
+  <br>
+  <br>
+  <a [routerLink]="['/restaurants']" class="waves-effect waves-light btn"> BACK</a>
+</div>

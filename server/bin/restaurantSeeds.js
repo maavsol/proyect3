@@ -6,9 +6,9 @@ mongoose.connect(dbURL, {useMongoClient: true});
 
 
 const restaurant = [{
-  name: 'la almeja dorada',
+  name: 'la almeja borracha',
   img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
-  description: 'Culver’s Restaurant was founded by the Culver family in 1984, which eventually branched out to more than 300 franchised restaurants all over the US. Culver’s is well-known for its ButterBurger, which made the restaurant extremely famous. They also have other items which include salads, sandwiches, desserts, etc.',
+  description: 'La almeja borracha, a menudo le dicen solamente la almeja, es el bar local de Quahog, su dueño es Jerome (Dueño actual) y anteriormente fue el locar de Horacio (Dueño anterior). Es el lugar favorito de Peter Griffin, Cleveland Brown, Joe Swanson y Glenn Quagmire, a veces la suele frecuentar Brian Griffin el perro de Peter.',
   products: []
 },
 {
@@ -18,7 +18,22 @@ const restaurant = [{
   products: []
 },
 {
-  name: 'La cocinona',
+  name: 'Ironbar',
+  img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
+  description: 'Denny’s Restaurant offers a range of delicious American food to their customers. They regularly serve Breakfast, Lunch and Dinner at a great price, and they also offer food especially catered to senior citizens and to the health conscious.',
+  products: []
+},{
+  name: 'El Manchego',
+  img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
+  description: 'Denny’s Restaurant offers a range of delicious American food to their customers. They regularly serve Breakfast, Lunch and Dinner at a great price, and they also offer food especially catered to senior citizens and to the health conscious.',
+  products: []
+},{
+  name: 'Burger King',
+  img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
+  description: 'Denny’s Restaurant offers a range of delicious American food to their customers. They regularly serve Breakfast, Lunch and Dinner at a great price, and they also offer food especially catered to senior citizens and to the health conscious.',
+  products: []
+},{
+  name: 'Trattoria la Chopera',
   img: 'http://res.cloudinary.com/ddesyiweo/image/upload/v1507475956/best-restaurants-gq-0616-03_csjhba.jpg',
   description: 'Denny’s Restaurant offers a range of delicious American food to their customers. They regularly serve Breakfast, Lunch and Dinner at a great price, and they also offer food especially catered to senior citizens and to the health conscious.',
   products: []
